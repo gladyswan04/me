@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gladys Wan | Creator Growth & Cultural GTM</title>
+
+  <!-- OPTION 2: Fashion / Premium (ACTIVE) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f0e8;
+      --ink: #191716;
+      --muted: #706960;
+      --red: #e6392e;
+      --cream: #fff9ef;
+      --line: rgba(25, 23, 22, 0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Inter", sans-serif;
+      line-height: 1.65;
+
+      background:
+        radial-gradient(circle at 12% 8%, rgba(230,57,46,.22), transparent 28%),
+        radial-gradient(circle at 88% 22%, rgba(255,180,80,.28), transparent 28%),
+        linear-gradient(135deg, #f7f0e8 0%, #fff9ef 50%, #f4e4d2 100%);
+      color: var(--ink);
+    }
+
+    /* ===== TYPOGRAPHY SYSTEM ===== */
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", serif;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      font-size: clamp(52px, 8vw, 108px);
+      line-height: .9;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: clamp(36px, 5vw, 64px);
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 640px;
+    }
+
+    small {
+      font-family: "Inter", sans-serif;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    a {
+      font-family: "Inter", sans-serif;
+    }
+
+    .container {
+      width: min(1160px, 92%);
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 100px 0;
+    }
+
+    .highlight {
+      font-style: italic;
+      color: var(--red);
+    }
+
+    /* ===== BUTTON SYSTEM ===== */
+
+    .btn {
+      font-family: "Inter", sans-serif;
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .primary {
+      background: var(--ink);
+      color: white;
+    }
+
+    .secondary {
+      background: white;
+      border: 1px solid var(--line);
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container hero">
+    <h1>
+      Building the bridge between <span class="highlight">culture</span> and growth.
+    </h1>
+
+    <p>
+      I design creator-driven systems, founder communities, and growth experiences that feel human — not forced.
+    </p>
+
+    <br />
+
+    <div>
+      <button class="btn primary">Work with me</button>
+      <button class="btn secondary">View LinkedIn</button>
+    </div>
+  </div>
+</body>
+</html>
