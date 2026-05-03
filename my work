@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name — Marketing & Growth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0e0e0e;
+    --cream: #f5f0e8;
+    --accent: #c8402a;
+    --muted: #7a7570;
+    --border: #d4cec4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+
+  .hero-left {
+    padding: 8rem 4rem 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.0;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 380px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 0.85rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--accent); }
+
+  .btn-ghost {
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .btn-ghost:hover { color: var(--ink); border-color: var(--ink); }
+
+  .hero-right {
+    background: var(--ink);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-right::before {
+    content: 'MKT';
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 12rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.04);
+    letter-spacing: -0.05em;
+    line-height: 1;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .stat { color: white; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+    margin-bottom: 0.35rem;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 4rem; }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ABOUT */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .about-text p {
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    line-height: 1.85;
+  }
+
+  .about-img {
+    background: var(--ink);
+    aspect-ratio: 4/5;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-img::after {
+    content: attr(data-initials);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.12);
+  }
+
+  /* SKILLS */
+  #skills {
+    background: var(--ink);
+    color: white;
+    border-top: 1px solid #222;
+  }
+
+  #skills h2 { color: white; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 1rem;
+  }
+
+  .skill-card {
+    padding: 2rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: background 0.25s;
+  }
+
+  .skill-card:hover { background: rgba(255,255,255,0.04); }
+
+  .skill-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .skill-card h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-card p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+  }
+
+  /* WORK */
+  #work { border-top: 1px solid var(--border); }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 1rem;
+  }
+
+  .work-item {
+    background: white;
+    padding: 2.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .work-item:hover { background: #faf7f2; }
+
+  .work-item::after {
+    content: '↗';
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.2rem;
+    color: var(--muted);
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+    transform: translate(-4px, 4px);
+  }
+
+  .work-item:hover::after {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  .work-tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .work-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .work-item p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  .work-metrics {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .metric {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .metric-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .metric-key {
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--accent);
+    color: white;
+    text-align: center;
+  }
+
+  #contact h2 { color: white; }
+
+  #contact .section-label { color: rgba(255,255,255,0.7); }
+  #contact .section-label::before { background: rgba(255,255,255,0.5); }
+
+  .contact-email {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin: 1.5rem 0 2rem;
+    letter-spacing: 0.02em;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 1.5rem;
+    transition: border-color 0.2s;
+  }
+
+  .contact-email:hover { border-color: white; }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .social-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .social-links a:hover { color: white; }
+
+  footer {
+    padding: 1.5rem 4rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    #hero { grid-template-columns: 1fr; }
+    .hero-right { min-height: 40vh; }
+    .hero-left { padding: 6rem 1.5rem 3rem; }
+    section { padding: 4rem 1.5rem; }
+    #about { grid-template-columns: 1fr; gap: 3rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .work-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.5rem; padding: 1.5rem; }
+  }
+
+  /* SCROLL FADE IN */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">Your Name</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <span class="hero-tag">Marketing & Growth</span>
+    <h1>Building brands that <em>move</em> people.</h1>
+    <p class="hero-sub">I turn ambiguous opportunities into measurable growth — through community, campaigns, and creative strategy.</p>
+    <div class="cta-row">
+      <a href="#work" class="btn-primary">See My Work</a>
+      <a href="#contact" class="btn-ghost">Get in touch →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-grid">
+      <div class="stat">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Campaigns launched</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">50K+</div>
+        <div class="stat-label">Community reach</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3×</div>
+        <div class="stat-label">Avg growth rate</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Markets activated</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-text fade-in">
+    <span class="section-label">About</span>
+    <h2>Strategy meets execution.</h2>
+    <p>I'm a growth marketer and community builder with a track record of launching programs from zero — scaling creator ecosystems, campus activations, and brand partnerships across global markets.</p>
+    <p>My work sits at the intersection of people and data: I care deeply about authentic connection, and I measure everything.</p>
+    <p>Based in California. Currently building something new.</p>
+  </div>
+  <div class="about-img fade-in" data-initials="YN"></div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <span class="section-label" style="color:rgba(255,255,255,0.5);">
+    <span style="display:inline-block;width:2rem;height:1px;background:rgba(255,255,255,0.4);"></span>
+    Skills
+  </span>
+  <h2>What I bring.</h2>
+  <div class="skills-grid">
+    <div class="skill-card fade-in">
+      <span class="skill-icon">◈</span>
+      <h3>Growth Strategy</h3>
+      <p>Funnel design, retention mechanics, referral loops. I find the lever that actually moves the number.</p>
+    </div>
+    <div class="skill-card fade-in">
+      <span class="skill-icon">◉</span>
+      <h3>Community Building</h3>
+      <p>Campus programs, creator ecosystems, ambassador frameworks — zero to scaled, with operational infrastructure.</p>
+    </div>
+    <div class="skill-card fade-in">
+      <span class="skill-icon">◌</span>
+      <h3>Creator Partnerships</h3>
+      <p>Creator outreach, briefing, co-creation. Identifying the right voices and turning them into genuine advocates.</p>
+    </div>
+    <div class="skill-card fade-in">
+      <span class="skill-icon">▷</span>
+      <h3>Event Production</h3>
+      <p>End-to-end event operations — from venue to run-of-show, keynotes to workshops, 50 to 500 people.</p>
+    </div>
+    <div class="skill-card fade-in">
+      <span class="skill-icon">◫</span>
+      <h3>Content & Copy</h3>
+      <p>Bilingual (EN/ZH) content strategy, social copy, campaign messaging — punchy, brand-aligned, platform-native.</p>
+    </div>
+    <div class="skill-card fade-in">
+      <span class="skill-icon">⬡</span>
+      <h3>Partnerships & Contracts</h3>
+      <p>Vendor negotiation, sponsorship agreements, university and brand partnerships — from outreach to signed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <span class="section-label">Work</span>
+  <h2>Selected projects.</h2>
+  <div class="work-grid">
+    <div class="work-item fade-in">
+      <span class="work-tag">Community · 2024–25</span>
+      <h3>National Campus Tour</h3>
+      <p>Designed and executed a multi-city campus activation program across 10+ universities — from UCSD to Columbia — building creator communities on a global platform.</p>
+      <div class="work-metrics">
+        <div class="metric">
+          <span class="metric-val">11</span>
+          <span class="metric-key">University stops</span>
+        </div>
+        <div class="metric">
+          <span class="metric-val">500+</span>
+          <span class="metric-key">Students reached</span>
+        </div>
+      </div>
+    </div>
+    <div class="work-item fade-in">
+      <span class="work-tag">Events · 2025</span>
+      <h3>Creator Summit LA</h3>
+      <p>Produced a full-day creator summit at Venice Beach featuring keynotes, panels, workshops, and networking — end-to-end event ops and brand experience.</p>
+      <div class="work-metrics">
+        <div class="metric">
+          <span class="metric-val">4</span>
+          <span class="metric-key">Format tracks</span>
+        </div>
+        <div class="metric">
+          <span class="metric-val">100+</span>
+          <span class="metric-key">Attendees</span>
+        </div>
+      </div>
+    </div>
+    <div class="work-item fade-in">
+      <span class="work-tag">Growth · 2024</span>
+      <h3>Creator Incentive Program</h3>
+      <p>Built a multi-tiered creator migration strategy targeting creators moving from TikTok, Instagram, and YouTube — with incentive frameworks that drove intrinsic motivation.</p>
+      <div class="work-metrics">
+        <div class="metric">
+          <span class="metric-val">5</span>
+          <span class="metric-key">Platforms targeted</span>
+        </div>
+      </div>
+    </div>
+    <div class="work-item fade-in">
+      <span class="work-tag">Partnerships · 2024</span>
+      <h3>Brand Ambassador Framework</h3>
+      <p>Developed end-to-end ambassador program infrastructure — onboarding, contracts, incentive tiers, and performance tracking — scalable across U.S. markets.</p>
+      <div class="work-metrics">
+        <div class="metric">
+          <span class="metric-val">Zero</span>
+          <span class="metric-key">to scaled</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <span class="section-label">Contact</span>
+  <h2>Let's work together.</h2>
+  <a href="mailto:your@email.com" class="contact-email">your@email.com</a>
+  <div class="social-links">
+    <a href="#">LinkedIn</a>
+    <a href="#">Instagram</a>
+    <a href="#">Twitter</a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Your Name</span>
+  <span>Marketing & Growth · California</span>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
